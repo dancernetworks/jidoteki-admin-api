@@ -13,15 +13,15 @@ putToken = (sha256) ->
     days    = 30
     date.setTime(+ date + (days * oneDay))
 
-    document.cookie = "jidoteki-admin-api-token=#{sha256}; expires=#{date.toGMTString()}; path=/"
+    document.cookie = "jidoteki-admin-api-token=#{sha256}; expires=#{date.toGMTString()}; path=/; secure;"
   else
-    document.cookie = "jidoteki-admin-api-token=#{sha256}; path=/"
+    document.cookie = "jidoteki-admin-api-token=#{sha256}; path=/; secure;"
 
 getToken = ->
   (document.cookie.match('(^|; )jidoteki-admin-api-token=([^;]*)')||0)[2]
 
 clearToken = ->
-  document.cookie = 'jidoteki-admin-api-token=; path=/'
+  document.cookie = 'jidoteki-admin-api-token=; path=/; secure; '
 
 capitalize = (string) ->
   string.charAt(0).toUpperCase() + string.slice(1)
