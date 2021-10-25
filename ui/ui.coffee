@@ -40,7 +40,7 @@ loadHome = ->
 
         value = "" if typeof value is 'object'
 
-        "<li class=\"list-group-item\">#{capitalize key} <span class=\"pull-right text-primary\">#{validator.escape(value)}</span></li>"
+        "<li class=\"list-group-item\">#{capitalize key} <span class=\"float-right text-primary\">#{validator.escape(value)}</span></li>"
 
       $('.jido-data-network-info').html networkSettings
 
@@ -54,9 +54,9 @@ loadHome = ->
       for service in result.services
         for key, value of service
           if value == 'running'
-            servicesStatus = servicesStatus + "<li class=\"list-group-item\"><i class=\"fa icon-ok-circled text-success\"></i> #{validator.escape(key)} <span class=\"pull-right text-success\">#{validator.escape(value)}</span></li>"
+            servicesStatus = servicesStatus + "<li class=\"list-group-item\"><i class=\"fa icon-ok-circled text-success\"></i> #{validator.escape(key)} <span class=\"float-right text-success\">#{validator.escape(value)}</span></li>"
           else
-            servicesStatus = servicesStatus + "<li class=\"list-group-item\"><i class=\"fa icon-cancel-circled text-danger\"></i> #{validator.escape(key)} <span class=\"pull-right text-danger\">#{validator.escape(value)}</span></li>"
+            servicesStatus = servicesStatus + "<li class=\"list-group-item\"><i class=\"fa icon-cancel-circled text-danger\"></i> #{validator.escape(key)} <span class=\"float-right text-danger\">#{validator.escape(value)}</span></li>"
 
       $('.jido-data-services-info').html servicesStatus
 
@@ -112,7 +112,7 @@ loadNetwork = ->
         value = "" if typeof value is 'object'
         $("##{key}-input").val value
 
-        "<li class=\"list-group-item\">#{capitalize key} <span class=\"pull-right label label-primary\">#{validator.escape(value)}</span></li>"
+        "<li class=\"list-group-item\">#{capitalize key} <span class=\"float-right label label-primary\">#{validator.escape(value)}</span></li>"
 
       $('.jido-data-network-info').html networkSettings
 

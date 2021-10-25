@@ -289,44 +289,45 @@
                         </label>
                       </div>
                     </div><br>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                      <div class="form-group">
-                        <label for="hostname-input" class="control-label network-hostname-label">Hostname</label>
-                        <input id="hostname-input" placeholder="Hostname" name="hostname" type="text" class="form-control">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="hostname-input" class="control-label network-hostname-label">Hostname</label>
+                          <input id="hostname-input" placeholder="Hostname" name="hostname" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="interface-input" class="control-label network-interface-label">Interface</label>
+                          <input id="interface-input" placeholder="Interface" name="interface" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="ntpserver-input" class="control-label network-ntpserver-label">NTP Server</label>
+                          <input id="ntpserver-input" placeholder="pool.ntp.org" name="ntpserver" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="dns1-input" class="control-label network-dns1-label"><em>DNS 1 (optional)</em></label>
+                          <input id="dns1-input" placeholder="DNS 1" name="dns-1" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="dns2-input" class="control-label network-dns2-label"><em>DNS 2 (optional)</em></label>
+                          <input id="dns2-input" placeholder="DNS 2" name="dns-2" type="text" class="form-control">
+                        </div>
                       </div>
-                      <div class="form-group">
-                        <label for="interface-input" class="control-label network-interface-label">Interface</label>
-                        <input id="interface-input" placeholder="Interface" name="interface" type="text" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="ntpserver-input" class="control-label network-ntpserver-label">NTP Server</label>
-                        <input id="ntpserver-input" placeholder="pool.ntp.org" name="ntpserver" type="text" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="dns1-input" class="control-label network-dns1-label"><em>DNS 1 (optional)</em></label>
-                        <input id="dns1-input" placeholder="DNS 1" name="dns-1" type="text" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="dns2-input" class="control-label network-dns2-label"><em>DNS 2 (optional)</em></label>
-                        <input id="dns2-input" placeholder="DNS 2" name="dns-2" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                      <div class="form-group">
-                        <label for="ip_address-input" class="control-label network-ip_address-label">IP address<em> (required for STATIC)</em></label>
-                        <input id="ip_address-input" placeholder="IP address" name="ip-address" type="text" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="netmask-input" class="control-label network-netmask-label">Netmask / Prefix (ex: /64)<em> (required for STATIC)</em></label>
-                        <input id="netmask-input" placeholder="Netmask / Prefix (ex: /64)" name="netmask" type="text" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="gateway-input" class="control-label network-gateway-label">Gateway<em> (required for STATIC)</em></label>
-                        <input id="gateway-input" placeholder="Gateway" name="gateway" type="text" class="form-control">
-                      </div>
-                      <div class="form-group"><br>
-                        <input id="jido-button-network-upload" type="submit" value="Update" onclick="return event.preventDefault();" class="btn btn-lg btn-primary btn-block">
-                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                          <label for="ip_address-input" class="control-label network-ip_address-label">IP address<em> (required for STATIC)</em></label>
+                          <input id="ip_address-input" placeholder="IP address" name="ip-address" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="netmask-input" class="control-label network-netmask-label">Netmask / Prefix (ex: /64)<em> (required for STATIC)</em></label>
+                          <input id="netmask-input" placeholder="Netmask / Prefix (ex: /64)" name="netmask" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="gateway-input" class="control-label network-gateway-label">Gateway<em> (required for STATIC)</em></label>
+                          <input id="gateway-input" placeholder="Gateway" name="gateway" type="text" class="form-control">
+                        </div>
+                        <div class="form-group"></div>
+                      </div><br>
+                      <input id="jido-button-network-upload" type="submit" value="Update" onclick="return event.preventDefault();" class="btn btn-lg btn-primary btn-block">
                     </div>
                   </fieldset>
                 </form>
@@ -617,11 +618,11 @@
             <h1 style="display:inline;">Monitor system health</h1>
             <div style="display:inline;" class="float-right">
               <ul id="jido-monitor-duration" class="pagination pagination-md">
-                <li class="jido-duration-1h active"><a href="#" duration="1h">1 hour</a></li>
-                <li class="jido-duration-1d"><a href="#" duration="1d">1 day</a></li>
-                <li class="jido-duration-1w"><a href="#" duration="1w">1 week</a></li>
-                <li class="jido-duration-1m"><a href="#" duration="1m">1 month</a></li>
-                <li class="jido-duration-1y"><a href="#" duration="1y">1 year</a></li>
+                <li class="page-item jido-duration-1h active"><a href="#" duration="1h" class="page-link">1 hour</a></li>
+                <li class="page-item jido-duration-1d"><a href="#" duration="1d" class="page-link">1 day</a></li>
+                <li class="page-item jido-duration-1w"><a href="#" duration="1w" class="page-link">1 week</a></li>
+                <li class="page-item jido-duration-1m"><a href="#" duration="1m" class="page-link">1 month</a></li>
+                <li class="page-item jido-duration-1y"><a href="#" duration="1y" class="page-link">1 year</a></li>
               </ul>
               <p class="text-right"><span class="jido-monitor-msg">Loading graphs, please wait...</span><span>&nbsp;</span></p>
             </div><br><br>
@@ -749,8 +750,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
-                <h4 class="modal-title">PEM certificate example</h4>
+                <h4 class="modal-title">PEM certificate example
+                  <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                </h4>
               </div>
               <div class="modal-body">
                 <p>The PEM certificate should look like this:</p>
@@ -767,7 +769,7 @@ vA==
 </pre>
               </div>
               <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
               </div>
             </div>
           </div>
@@ -776,8 +778,9 @@ vA==
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
-                <h4 class="modal-title">RSA private key (un-encrypted) example</h4>
+                <h4 class="modal-title">RSA private key (un-encrypted) example
+                  <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+                </h4>
               </div>
               <div class="modal-body">
                 <p>The RSA private key (un-encrypted) should look like this:</p>
@@ -794,7 +797,7 @@ GEs=
 </pre>
               </div>
               <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
               </div>
             </div>
           </div>
@@ -807,7 +810,7 @@ GEs=
               <p class="text-muted">Are you sure ?</p>
             </h1>
             <p>Choose Yes to immediately restart the system.</p><br>
-            <button type="button" data-dismiss="modal" class="btn btn-default"><i class="fa icon-cancel"></i> No, not yet</button>&nbsp;&nbsp;
+            <button type="button" data-dismiss="modal" class="btn btn-secondary"><i class="fa icon-cancel"></i> No, not yet</button>&nbsp;&nbsp;
             <button id="jido-button-restart-confirm" type="button" data-dismiss="modal" class="btn btn-danger"><i class="fa icon-ok"></i> Yes, restart it!</button>
           </div>
         </div>
@@ -830,7 +833,9 @@ GEs=
     <script src="/docs/jsrrdgraph/strftime.js?v=1.24.0"></script>
     <script src="/docs/jsrrdgraph/draw.js?v=1.24.0"></script>
     <script src="/docs/ui.min.js?v=1.24.0"></script>
-    <div style="margin-bottom:0;margin-top:3em;position:relative;bottom:0px;width:100%;" class="well text-right text-muted jido-smalltext">Powered by on-premises.com - v1.24.0 - <a href="/docs/NOTICE.TXT">Copyright notices</a></div>
+    <div class="card bg-light">
+      <div style="margin-bottom:0;position:relative;bottom:0px;width:100%;" class="card-body text-right text-muted jido-smalltext">Powered by on-premises.com - v1.24.0 -<a href="/docs/NOTICE.TXT">Copyright notices</a></div>
+    </div>
     <!-- This Source Code Form is subject to the terms of the Mozilla Public-->
     <!-- License, v. 2.0. If a copy of the MPL was not distributed with this-->
     <!-- file, You can obtain one at http://mozilla.org/MPL/2.0/.-->

@@ -40,44 +40,45 @@
                       input#network-type-static(name='network-type', value='static', type='radio')
                       strong STATIC
                 br
-                .col-lg-6.col-md-6.col-sm-6
-                  .form-group
-                    label.control-label.network-hostname-label(for='hostname-input')
-                      | Hostname
-                    input#hostname-input.form-control(placeholder='Hostname', name='hostname', type='text')
-                  .form-group
-                    label.control-label.network-interface-label(for='interface-input')
-                      | Interface
-                    input#interface-input.form-control(placeholder='Interface', name='interface', type='text')
-                  .form-group
-                    label.control-label.network-ntpserver-label(for='ntpserver-input')
-                      | NTP Server
-                    input#ntpserver-input.form-control(placeholder='pool.ntp.org', name='ntpserver', type='text')
-                  .form-group
-                    label.control-label.network-dns1-label(for='dns1-input')
-                      em DNS 1 (optional)
-                    input#dns1-input.form-control(placeholder='DNS 1', name='dns-1', type='text')
-                  .form-group
-                    label.control-label.network-dns2-label(for='dns2-input')
-                      em DNS 2 (optional)
-                    input#dns2-input.form-control(placeholder='DNS 2', name='dns-2', type='text')
-                .col-lg-6.col-md-6.col-sm-6
-                  .form-group
-                    label.control-label.network-ip_address-label(for='ip_address-input')
-                      | IP address
-                      em  (required for STATIC)
-                    input#ip_address-input.form-control(placeholder='IP address', name='ip-address', type='text')
-                  .form-group
-                    label.control-label.network-netmask-label(for='netmask-input')
-                      | Netmask / Prefix (ex: /64)
-                      em  (required for STATIC)
-                    input#netmask-input.form-control(placeholder='Netmask / Prefix (ex: /64)', name='netmask', type='text')
-                  .form-group
-                    label.control-label.network-gateway-label(for='gateway-input')
-                      | Gateway
-                      em  (required for STATIC)
-                    input#gateway-input.form-control(placeholder='Gateway', name='gateway', type='text')
-                  .form-group
+                .row
+                    .col-lg-6.col-md-6.col-sm-6
+                      .form-group
+                        label.control-label.network-hostname-label(for='hostname-input')
+                          | Hostname
+                        input#hostname-input.form-control(placeholder='Hostname', name='hostname', type='text')
+                      .form-group
+                        label.control-label.network-interface-label(for='interface-input')
+                          | Interface
+                        input#interface-input.form-control(placeholder='Interface', name='interface', type='text')
+                      .form-group
+                        label.control-label.network-ntpserver-label(for='ntpserver-input')
+                          | NTP Server
+                        input#ntpserver-input.form-control(placeholder='pool.ntp.org', name='ntpserver', type='text')
+                      .form-group
+                        label.control-label.network-dns1-label(for='dns1-input')
+                          em DNS 1 (optional)
+                        input#dns1-input.form-control(placeholder='DNS 1', name='dns-1', type='text')
+                      .form-group
+                        label.control-label.network-dns2-label(for='dns2-input')
+                          em DNS 2 (optional)
+                        input#dns2-input.form-control(placeholder='DNS 2', name='dns-2', type='text')
+                    .col-lg-6.col-md-6.col-sm-6
+                      .form-group
+                        label.control-label.network-ip_address-label(for='ip_address-input')
+                          | IP address
+                          em  (required for STATIC)
+                        input#ip_address-input.form-control(placeholder='IP address', name='ip-address', type='text')
+                      .form-group
+                        label.control-label.network-netmask-label(for='netmask-input')
+                          | Netmask / Prefix (ex: /64)
+                          em  (required for STATIC)
+                        input#netmask-input.form-control(placeholder='Netmask / Prefix (ex: /64)', name='netmask', type='text')
+                      .form-group
+                        label.control-label.network-gateway-label(for='gateway-input')
+                          | Gateway
+                          em  (required for STATIC)
+                        input#gateway-input.form-control(placeholder='Gateway', name='gateway', type='text')
+                      .form-group
                     br
                     input#jido-button-network-upload.btn.btn-lg.btn-primary.btn-block(type='submit', value='Update', onclick='return event.preventDefault();')
 // /#network container

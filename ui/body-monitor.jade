@@ -12,16 +12,16 @@
         h1(style='display:inline;') Monitor system health
         .float-right(style='display:inline;')
           ul.pagination.pagination-md#jido-monitor-duration
-            li.jido-duration-1h.active
-              a(href="#", duration='1h') 1 hour
-            li.jido-duration-1d
-              a(href="#", duration='1d') 1 day
-            li.jido-duration-1w
-              a(href="#", duration='1w') 1 week
-            li.jido-duration-1m
-              a(href="#", duration='1m') 1 month
-            li.jido-duration-1y
-              a(href="#", duration='1y') 1 year
+            li.page-item.jido-duration-1h.active
+              a.page-link(href="#", duration='1h') 1 hour
+            li.page-item.jido-duration-1d
+              a.page-link(href="#", duration='1d') 1 day
+            li.page-item.jido-duration-1w
+              a.page-link(href="#", duration='1w') 1 week
+            li.page-item.jido-duration-1m
+              a.page-link(href="#", duration='1m') 1 month
+            li.page-item.jido-duration-1y
+              a.page-link(href="#", duration='1y') 1 year
           p.text-right
             span.jido-monitor-msg Loading graphs, please wait...
             span &nbsp;

@@ -568,7 +568,7 @@
             if (typeof value === 'object') {
               value = "";
             }
-            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"pull-right text-primary\">${validator.escape(value)}</span></li>`);
+            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"float-right text-primary\">${validator.escape(value)}</span></li>`);
           }
           return results;
         })();
@@ -590,9 +590,9 @@
           for (key in service) {
             value = service[key];
             if (value === 'running') {
-              servicesStatus = servicesStatus + `<li class=\"list-group-item\"><i class=\"fa icon-ok-circled text-success\"></i> ${validator.escape(key)} <span class=\"pull-right text-success\">${validator.escape(value)}</span></li>`;
+              servicesStatus = servicesStatus + `<li class=\"list-group-item\"><i class=\"fa icon-ok-circled text-success\"></i> ${validator.escape(key)} <span class=\"float-right text-success\">${validator.escape(value)}</span></li>`;
             } else {
-              servicesStatus = servicesStatus + `<li class=\"list-group-item\"><i class=\"fa icon-cancel-circled text-danger\"></i> ${validator.escape(key)} <span class=\"pull-right text-danger\">${validator.escape(value)}</span></li>`;
+              servicesStatus = servicesStatus + `<li class=\"list-group-item\"><i class=\"fa icon-cancel-circled text-danger\"></i> ${validator.escape(key)} <span class=\"float-right text-danger\">${validator.escape(value)}</span></li>`;
             }
           }
         }
@@ -662,7 +662,7 @@
               value = "";
             }
             $(`#${key}-input`).val(value);
-            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"pull-right label label-primary\">${validator.escape(value)}</span></li>`);
+            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"float-right label label-primary\">${validator.escape(value)}</span></li>`);
           }
           return results;
         })();

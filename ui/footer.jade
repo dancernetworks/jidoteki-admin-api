@@ -1,7 +1,7 @@
 //- This Source Code Form is subject to the terms of the Mozilla Public
 //- License, v. 2.0. If a copy of the MPL was not distributed with this
 //- file, You can obtain one at http://mozilla.org/MPL/2.0/.
-//- 
+//-
 //- Copyright (c) 2015-2018 Alexander Williams, Unscramble <license@unscramble.jp>
 
 script(src="/docs/jquery/jquery.min.js?v=#{appVersion}")
@@ -25,7 +25,7 @@ script(src="/docs/jsrrdgraph/draw.js?v=#{appVersion}")
 
 //- Always load the UI last
 script(src="/docs/ui.min.js?v=#{appVersion}")
-
-.well.text-right.text-muted.jido-smalltext(style='margin-bottom:0;margin-top:3em;position:relative;bottom:0px;width:100%;')
-  | Powered by on-premises.com - v#{appVersion} - 
-  a(href='/docs/NOTICE.TXT') Copyright notices
+.card.bg-light
+    .card-body.text-right.text-muted.jido-smalltext(style='margin-bottom:0;position:relative;bottom:0px;width:100%;')
+      | Powered by on-premises.com - v#{appVersion} -
+      a(href='/docs/NOTICE.TXT') Copyright notices

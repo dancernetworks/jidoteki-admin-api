@@ -1,7 +1,7 @@
 //- This Source Code Form is subject to the terms of the Mozilla Public
 //- License, v. 2.0. If a copy of the MPL was not distributed with this
 //- file, You can obtain one at http://mozilla.org/MPL/2.0/.
-//- 
+//-
 //- Copyright (c) 2015-2016 Alexander Williams, Unscramble <license@unscramble.jp>
 
 mixin pemCert
@@ -34,8 +34,8 @@ mixin certModals(title)
   .modal-dialog
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
         h4.modal-title #{title} example
+         button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
       .modal-body
         p The #{title} should look like this:
         if title == 'PEM certificate'
@@ -43,7 +43,7 @@ mixin certModals(title)
         else
           +rsaKey
       .modal-footer
-        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
 
 #jido-modal-certs-pem.modal
   +certModals('PEM certificate')
@@ -60,7 +60,7 @@ mixin certModals(title)
           p.text-muted Are you sure ?
         p Choose Yes to immediately restart the system.
         br
-        button.btn.btn-default(type='button', data-dismiss='modal')
+        button.btn.btn-secondary(type='button', data-dismiss='modal')
           i.fa.icon-cancel
           |  No, not yet
         | &nbsp;&nbsp;
