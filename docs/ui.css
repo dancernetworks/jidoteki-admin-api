@@ -96,3 +96,15 @@ pre {
 .modal-title {
     width: 100%;
 }
+.list-group-item-heading,.list-group-item-text {
+    color: #555555;
+
+}
+a.list-group-item:hover, button.list-group-item:hover, a.list-group-item:focus, button.list-group-item:focus {
+    text-decoration: none;
+    color: #555555;
+    background-color: #f5f5f5;
+}
+.storage-form {
+    width: 100%;
+}
