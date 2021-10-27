@@ -128,12 +128,12 @@ getStatus = (msg, callback) ->
         $(".jido-data-#{msg}-log").html(if typeof result.log is 'object' then "No log file found" else validator.escape(result.log).replace(/\\n/g,'<br/>'))
 
       label = switch status
-        when "failed"     then "label-danger"
-        when "success"    then "label-success"
-        when "running"    then "label-primary"
+        when "failed"     then "badge-danger"
+        when "success"    then "badge-success"
+        when "running"    then "badge-primary"
         else
           $(".jido-data-#{msg}-status").html "waiting for #{msg}"
-          "label-default"
+          "badge-light"
 
       if status == 'failed'
         $(".jido-page-content-#{msg} .alert.jido-panel").addClass "alert-danger"
@@ -149,9 +149,9 @@ getStatus = (msg, callback) ->
         $(".jido-data-#{msg}-status-error").hide()
         $(".jido-data-#{msg}-status-error-message").html ''
 
-      $(".jido-data-#{msg}-status").removeClass("label-danger")
-      $(".jido-data-#{msg}-status").removeClass("label-success")
-      $(".jido-data-#{msg}-status").removeClass("label-default")
+      $(".jido-data-#{msg}-status").removeClass("badge-danger")
+      $(".jido-data-#{msg}-status").removeClass("badge-success")
+      $(".jido-data-#{msg}-status").removeClass("badge-light")
       $(".jido-data-#{msg}-status").addClass(label)
 
       callback result
@@ -332,18 +332,18 @@ tokenButtonListener = ->
       putFile 'token', '/api/v1/admin/setup', formData, (err, result) ->
         if err
           $('.jido-data-token-status').html 'failed'
-          $('.jido-data-token-status').removeClass 'label-danger'
-          $('.jido-data-token-status').removeClass 'label-success'
-          $('.jido-data-token-status').removeClass 'label-default'
-          $('.jido-data-token-status').addClass 'label-danger'
+          $('.jido-data-token-status').removeClass 'badge-danger'
+          $('.jido-data-token-status').removeClass 'badge-success'
+          $('.jido-data-token-status').removeClass 'badge-light'
+          $('.jido-data-token-status').addClass 'badge-danger'
 
           failedUpload 'token'
         else
           $('.jido-data-token-status').html 'changed'
-          $('.jido-data-token-status').removeClass 'label-danger'
-          $('.jido-data-token-status').removeClass 'label-success'
-          $('.jido-data-token-status').removeClass 'label-default'
-          $('.jido-data-token-status').addClass 'label-success'
+          $('.jido-data-token-status').removeClass 'badge-danger'
+          $('.jido-data-token-status').removeClass 'badge-success'
+          $('.jido-data-token-status').removeClass 'badge-light'
+          $('.jido-data-token-status').addClass 'badge-success'
           $(".token-alert").hide()
 
           putToken sha256
@@ -416,18 +416,18 @@ setuptokenButtonListener = ->
       putFile 'firstrun', '/api/v1/admin/setup', formData, (err, result) ->
         if err
           $('.jido-data-firstrun-status').html 'failed'
-          $('.jido-data-firstrun-status').removeClass 'label-danger'
-          $('.jido-data-firstrun-status').removeClass 'label-success'
-          $('.jido-data-firstrun-status').removeClass 'label-default'
-          $('.jido-data-firstrun-status').addClass 'label-danger'
+          $('.jido-data-firstrun-status').removeClass 'badge-danger'
+          $('.jido-data-firstrun-status').removeClass 'badge-success'
+          $('.jido-data-firstrun-status').removeClass 'badge-light'
+          $('.jido-data-firstrun-status').addClass 'badge-danger'
 
           failedUpload 'firstrun'
         else
           $('.jido-data-firstrun-status').html 'changed'
-          $('.jido-data-firstrun-status').removeClass 'label-danger'
-          $('.jido-data-firstrun-status').removeClass 'label-success'
-          $('.jido-data-firstrun-status').removeClass 'label-default'
-          $('.jido-data-firstrun-status').addClass 'label-success'
+          $('.jido-data-firstrun-status').removeClass 'badge-danger'
+          $('.jido-data-firstrun-status').removeClass 'badge-success'
+          $('.jido-data-firstrun-status').removeClass 'badge-light'
+          $('.jido-data-firstrun-status').addClass 'badge-success'
           $(".token-alert").hide()
 
           putToken sha256

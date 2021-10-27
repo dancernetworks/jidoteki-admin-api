@@ -112,7 +112,7 @@ loadNetwork = ->
         value = "" if typeof value is 'object'
         $("##{key}-input").val value
 
-        "<li class=\"list-group-item\">#{capitalize key} <span class=\"float-right label label-primary\">#{validator.escape(value)}</span></li>"
+        "<li class=\"list-group-item\">#{capitalize key} <span class=\"float-right badge badge-primary\">#{validator.escape(value)}</span></li>"
 
       $('.jido-data-network-info').html networkSettings
 
@@ -250,7 +250,7 @@ updateButtonListener = ->
 
     if formData
       $('.jido-data-update-status-error-message').html("");
-      $('.jido-data-update-status .label-danger').html("");
+      $('.jido-data-update-status .badge-danger').html("");
       $('.jido-page-content-update .jido-panel').show()
       putFile 'update', "/api/v1/admin/update", formData, (err, result) ->
         unless err
@@ -293,9 +293,9 @@ networkButtonListener = ->
         $('.network-form .network-ntpserver-label').focus()
         return
 
-    $('.jido-data-network-status').removeClass 'label-danger'
-    $('.jido-data-network-status').removeClass 'label-success'
-    $('.jido-data-network-status').removeClass 'label-default'
+    $('.jido-data-network-status').removeClass 'badge-danger'
+    $('.jido-data-network-status').removeClass 'badge-success'
+    $('.jido-data-network-status').removeClass 'badge-light'
 
     if network_mode == 'static'
       unless validator.isIP(json.network.ip_address)
@@ -327,10 +327,10 @@ networkButtonListener = ->
           return
 
       $('.jido-data-network-status').html 'STATIC'
-      $('.jido-data-network-status').addClass 'label-success'
+      $('.jido-data-network-status').addClass 'badge-success'
     else
       $('.jido-data-network-status').html 'DHCP'
-      $('.jido-data-network-status').addClass 'label-success'
+      $('.jido-data-network-status').addClass 'badge-success'
       delete json.network.ip_address
       delete json.network.netmask
       delete json.network.gateway
@@ -532,15 +532,15 @@ backupButtonListener = () ->
       putFile 'backup', '/api/v1/admin/backup', formData, (err, result) ->
         if err
           $('.jido-data-backup-status').html 'failed'
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-danger'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-danger'
         else
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-success'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-success'
 
           loadBackup()
 
@@ -553,17 +553,17 @@ backupButtonListener = () ->
       putFile 'backup', '/api/v1/admin/backup', formData, (err, result) ->
         if err
           $('.jido-data-backup-status').html 'failed'
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-danger'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-danger'
 
         else
           $('.jido-data-backup-status').html 'backup canceled'
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-success'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-success'
 
           successUpload "backup"
           loadBackup()
@@ -582,16 +582,16 @@ backupButtonListener = () ->
       putFile 'backup', "/api/v1/admin/backup/restore", formData, (err, result) ->
         if err
           $('.jido-data-backup-status').html 'failed'
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-danger'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-danger'
         else
           $('.jido-data-backup-status').html 'backup restored'
-          $('.jido-data-backup-status').removeClass 'label-danger'
-          $('.jido-data-backup-status').removeClass 'label-success'
-          $('.jido-data-backup-status').removeClass 'label-default'
-          $('.jido-data-backup-status').addClass 'label-success'
+          $('.jido-data-backup-status').removeClass 'badge-danger'
+          $('.jido-data-backup-status').removeClass 'badge-success'
+          $('.jido-data-backup-status').removeClass 'badge-light'
+          $('.jido-data-backup-status').addClass 'badge-success'
 
         $(".jido-page-content-backup .progress").hide()
 

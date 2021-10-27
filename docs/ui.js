@@ -164,14 +164,14 @@
         label = (function() {
           switch (status) {
             case "failed":
-              return "label-danger";
+              return "badge-danger";
             case "success":
-              return "label-success";
+              return "badge-success";
             case "running":
-              return "label-primary";
+              return "badge-primary";
             default:
               $(`.jido-data-${msg}-status`).html(`waiting for ${msg}`);
-              return "label-default";
+              return "badge-light";
           }
         })();
         if (status === 'failed') {
@@ -188,9 +188,9 @@
           $(`.jido-data-${msg}-status-error`).hide();
           $(`.jido-data-${msg}-status-error-message`).html('');
         }
-        $(`.jido-data-${msg}-status`).removeClass("label-danger");
-        $(`.jido-data-${msg}-status`).removeClass("label-success");
-        $(`.jido-data-${msg}-status`).removeClass("label-default");
+        $(`.jido-data-${msg}-status`).removeClass("badge-danger");
+        $(`.jido-data-${msg}-status`).removeClass("badge-success");
+        $(`.jido-data-${msg}-status`).removeClass("badge-light");
         $(`.jido-data-${msg}-status`).addClass(label);
         return callback(result);
       }
@@ -403,17 +403,17 @@
         return putFile('token', '/api/v1/admin/setup', formData, function(err, result) {
           if (err) {
             $('.jido-data-token-status').html('failed');
-            $('.jido-data-token-status').removeClass('label-danger');
-            $('.jido-data-token-status').removeClass('label-success');
-            $('.jido-data-token-status').removeClass('label-default');
-            $('.jido-data-token-status').addClass('label-danger');
+            $('.jido-data-token-status').removeClass('badge-danger');
+            $('.jido-data-token-status').removeClass('badge-success');
+            $('.jido-data-token-status').removeClass('badge-light');
+            $('.jido-data-token-status').addClass('badge-danger');
             return failedUpload('token');
           } else {
             $('.jido-data-token-status').html('changed');
-            $('.jido-data-token-status').removeClass('label-danger');
-            $('.jido-data-token-status').removeClass('label-success');
-            $('.jido-data-token-status').removeClass('label-default');
-            $('.jido-data-token-status').addClass('label-success');
+            $('.jido-data-token-status').removeClass('badge-danger');
+            $('.jido-data-token-status').removeClass('badge-success');
+            $('.jido-data-token-status').removeClass('badge-light');
+            $('.jido-data-token-status').addClass('badge-success');
             $(".token-alert").hide();
             putToken(sha256);
             successUpload('token');
@@ -485,17 +485,17 @@
         return putFile('firstrun', '/api/v1/admin/setup', formData, function(err, result) {
           if (err) {
             $('.jido-data-firstrun-status').html('failed');
-            $('.jido-data-firstrun-status').removeClass('label-danger');
-            $('.jido-data-firstrun-status').removeClass('label-success');
-            $('.jido-data-firstrun-status').removeClass('label-default');
-            $('.jido-data-firstrun-status').addClass('label-danger');
+            $('.jido-data-firstrun-status').removeClass('badge-danger');
+            $('.jido-data-firstrun-status').removeClass('badge-success');
+            $('.jido-data-firstrun-status').removeClass('badge-light');
+            $('.jido-data-firstrun-status').addClass('badge-danger');
             return failedUpload('firstrun');
           } else {
             $('.jido-data-firstrun-status').html('changed');
-            $('.jido-data-firstrun-status').removeClass('label-danger');
-            $('.jido-data-firstrun-status').removeClass('label-success');
-            $('.jido-data-firstrun-status').removeClass('label-default');
-            $('.jido-data-firstrun-status').addClass('label-success');
+            $('.jido-data-firstrun-status').removeClass('badge-danger');
+            $('.jido-data-firstrun-status').removeClass('badge-success');
+            $('.jido-data-firstrun-status').removeClass('badge-light');
+            $('.jido-data-firstrun-status').addClass('badge-success');
             $(".token-alert").hide();
             putToken(sha256);
             successUpload('firstrun');
@@ -662,7 +662,7 @@
               value = "";
             }
             $(`#${key}-input`).val(value);
-            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"float-right label label-primary\">${validator.escape(value)}</span></li>`);
+            results.push(`<li class=\"list-group-item\">${capitalize(key)} <span class=\"float-right badge badge-primary\">${validator.escape(value)}</span></li>`);
           }
           return results;
         })();
@@ -842,7 +842,7 @@
       formData.append('update', $('#update-input[type=file]')[0].files[0]);
       if (formData) {
         $('.jido-data-update-status-error-message').html("");
-        $('.jido-data-update-status .label-danger').html("");
+        $('.jido-data-update-status .badge-danger').html("");
         $('.jido-page-content-update .jido-panel').show();
         return putFile('update', "/api/v1/admin/update", formData, function(err, result) {
           if (!err) {
@@ -896,9 +896,9 @@
           return;
         }
       }
-      $('.jido-data-network-status').removeClass('label-danger');
-      $('.jido-data-network-status').removeClass('label-success');
-      $('.jido-data-network-status').removeClass('label-default');
+      $('.jido-data-network-status').removeClass('badge-danger');
+      $('.jido-data-network-status').removeClass('badge-success');
+      $('.jido-data-network-status').removeClass('badge-light');
       if (network_mode === 'static') {
         if (!validator.isIP(json.network.ip_address)) {
           $('.network-form .network-ip_address-label').parent().addClass('has-error');
@@ -935,10 +935,10 @@
           }
         }
         $('.jido-data-network-status').html('STATIC');
-        $('.jido-data-network-status').addClass('label-success');
+        $('.jido-data-network-status').addClass('badge-success');
       } else {
         $('.jido-data-network-status').html('DHCP');
-        $('.jido-data-network-status').addClass('label-success');
+        $('.jido-data-network-status').addClass('badge-success');
         delete json.network.ip_address;
         delete json.network.netmask;
         delete json.network.gateway;
@@ -1176,15 +1176,15 @@
         return putFile('backup', '/api/v1/admin/backup', formData, function(err, result) {
           if (err) {
             $('.jido-data-backup-status').html('failed');
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            return $('.jido-data-backup-status').addClass('label-danger');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            return $('.jido-data-backup-status').addClass('badge-danger');
           } else {
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            $('.jido-data-backup-status').addClass('label-success');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            $('.jido-data-backup-status').addClass('badge-success');
             return loadBackup();
           }
         });
@@ -1199,16 +1199,16 @@
         return putFile('backup', '/api/v1/admin/backup', formData, function(err, result) {
           if (err) {
             $('.jido-data-backup-status').html('failed');
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            return $('.jido-data-backup-status').addClass('label-danger');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            return $('.jido-data-backup-status').addClass('badge-danger');
           } else {
             $('.jido-data-backup-status').html('backup canceled');
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            $('.jido-data-backup-status').addClass('label-success');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            $('.jido-data-backup-status').addClass('badge-success');
             successUpload("backup");
             return loadBackup();
           }
@@ -1231,16 +1231,16 @@
         return putFile('backup', "/api/v1/admin/backup/restore", formData, function(err, result) {
           if (err) {
             $('.jido-data-backup-status').html('failed');
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            $('.jido-data-backup-status').addClass('label-danger');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            $('.jido-data-backup-status').addClass('badge-danger');
           } else {
             $('.jido-data-backup-status').html('backup restored');
-            $('.jido-data-backup-status').removeClass('label-danger');
-            $('.jido-data-backup-status').removeClass('label-success');
-            $('.jido-data-backup-status').removeClass('label-default');
-            $('.jido-data-backup-status').addClass('label-success');
+            $('.jido-data-backup-status').removeClass('badge-danger');
+            $('.jido-data-backup-status').removeClass('badge-success');
+            $('.jido-data-backup-status').removeClass('badge-light');
+            $('.jido-data-backup-status').addClass('badge-success');
           }
           return $(".jido-page-content-backup .progress").hide();
         });
