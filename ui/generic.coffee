@@ -295,7 +295,7 @@ tokenButtonListener = ->
 
     passwordStrength = zxcvbn(pass1, user_inputs=['password12', 'password@1', 'password@12', 'password@123'])
 
-    unless pass1.length > 8 && pass1.length <= 255
+    unless pass1.length >= 8 && pass1.length <= 255
       $(".token-alert").html 'Invalid API Token. Must be between 8 and 255 characters'
       $(".token-alert").show()
       $('.token-form .token-token1-label').parent().addClass 'has-error'
