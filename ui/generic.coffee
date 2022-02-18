@@ -123,6 +123,7 @@ getStatus = (msg, callback) ->
       callback new Error(err)
     else
       if typeof result.status is 'object' then status = "" else status = validator.escape(result.status)
+      $(".jido-data-#{msg}-status").show()
       $(".jido-data-#{msg}-status").html status
       if result.log
         $(".jido-data-#{msg}-log").html(if typeof result.log is 'object' then "No log file found" else validator.escape(result.log).replace(/\\n/g,'<br/>'))
@@ -159,6 +160,9 @@ getStatus = (msg, callback) ->
 pollStatus = (msg) ->
   $(".#{msg}-form").hide()
   $(".#{msg}-alert").show()
+  $(".jido-data-#{msg}-status").removeClass("badge-danger")
+  $(".jido-data-#{msg}-status").removeClass("badge-success")
+  $(".jido-data-#{msg}-status").addClass("badge-light")
 
   interval = setInterval () ->
     getStatus msg, (result) ->

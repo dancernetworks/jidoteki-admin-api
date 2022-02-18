@@ -250,6 +250,7 @@ updateButtonListener = ->
 
     if formData
       $('.jido-data-update-status-error-message').html("");
+      $('.jido-data-update-status').hide();
       $('.jido-data-update-status .badge-danger').html("");
       $('.jido-page-content-update .jido-panel').show()
       putFile 'update', "/api/v1/admin/update", formData, (err, result) ->

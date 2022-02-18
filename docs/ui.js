@@ -157,6 +157,7 @@
         } else {
           status = validator.escape(result.status);
         }
+        $(`.jido-data-${msg}-status`).show();
         $(`.jido-data-${msg}-status`).html(status);
         if (result.log) {
           $(`.jido-data-${msg}-log`).html(typeof result.log === 'object' ? "No log file found" : validator.escape(result.log).replace(/\\n/g, '<br/>'));
@@ -201,6 +202,9 @@
     var interval;
     $(`.${msg}-form`).hide();
     $(`.${msg}-alert`).show();
+    $(`.jido-data-${msg}-status`).removeClass("badge-danger");
+    $(`.jido-data-${msg}-status`).removeClass("badge-success");
+    $(`.jido-data-${msg}-status`).addClass("badge-light");
     return interval = setInterval(function() {
       return getStatus(msg, function(result) {
         if (result.status === "failed") {
@@ -842,7 +846,8 @@
       formData.append('update', $('#update-input[type=file]')[0].files[0]);
       if (formData) {
         $('.jido-data-update-status-error-message').html("");
-        $('.jido-data-update-status .badge-danger').html("");
+        $('.jido-data-update-status').hide();
+        $('.jido-data-update-status').html("");
         $('.jido-page-content-update .jido-panel').show();
         return putFile('update', "/api/v1/admin/update", formData, function(err, result) {
           if (!err) {
