@@ -19,6 +19,7 @@
       "changelog"
       "build"
       "health"
+      "installer"
       "endpoints" ) )
 
   # default actions

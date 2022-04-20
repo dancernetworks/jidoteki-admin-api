@@ -541,6 +541,13 @@
     $('#jido-button-home').addClass('active');
     $('#jido-page-navbar').show();
     $('#jido-page-dashboard').show();
+    fetchData("/api/v1/admin/installer", function(err, result) {
+      if (!err) {
+        if (result.installer === 'iso') {
+          return $('#jido-button-update').hide();
+        }
+      }
+    });
     fetchData("/api/v1/admin/version", function(err, result) {
       if (!err) {
         return $('.jido-data-platform-version').html(validator.escape(result.version));
@@ -847,7 +854,7 @@
       if (formData) {
         $('.jido-data-update-status-error-message').html("");
         $('.jido-data-update-status').hide();
-        $('.jido-data-update-status').html("");
+        $('.jido-data-update-status .badge-danger').html("");
         $('.jido-page-content-update .jido-panel').show();
         return putFile('update', "/api/v1/admin/update", formData, function(err, result) {
           if (!err) {

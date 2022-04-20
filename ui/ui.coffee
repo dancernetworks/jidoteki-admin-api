@@ -22,6 +22,11 @@ loadHome = ->
   $('#jido-button-home').addClass('active')
   $('#jido-page-navbar').show()
   $('#jido-page-dashboard').show()
+  
+  fetchData "/api/v1/admin/installer", (err, result) ->
+      unless err
+        if result.installer == 'iso'
+            $('#jido-button-update').hide()
 
   fetchData "/api/v1/admin/version", (err, result) ->
     unless err
