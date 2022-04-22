@@ -541,7 +541,13 @@
     $('#jido-button-home').addClass('active');
     $('#jido-page-navbar').show();
     $('#jido-page-dashboard').show();
-    $('#jido-button-update').hide();
+    fetchData("/api/v1/admin/installer", function(err, result) {
+      if (!err) {
+        if (result.installer === 'iso') {
+          return $('#jido-button-update').hide();
+        }
+      }
+    });
     fetchData("/api/v1/admin/version", function(err, result) {
       if (!err) {
         return $('.jido-data-platform-version').html(validator.escape(result.version));
@@ -1276,7 +1282,7 @@
           loadHome();
           break;
         case "jido-button-update":
-          loadHome();
+          loadUpdateCerts('update');
           break;
         case "jido-button-settings":
           loadNetwork();

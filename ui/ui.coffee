@@ -22,7 +22,11 @@ loadHome = ->
   $('#jido-button-home').addClass('active')
   $('#jido-page-navbar').show()
   $('#jido-page-dashboard').show()
-  $('#jido-button-update').hide()
+  
+  fetchData "/api/v1/admin/installer", (err, result) ->
+      unless err
+        if result.installer == 'iso'
+            $('#jido-button-update').hide()
 
   fetchData "/api/v1/admin/version", (err, result) ->
     unless err
@@ -613,7 +617,7 @@ navbarListener = ->
     clicked = $(this).parent().attr 'id'
     switch clicked
       when "jido-button-home"     then loadHome()
-      when "jido-button-update"   then loadHome()
+      when "jido-button-update"   then loadUpdateCerts 'update'
       when "jido-button-settings" then loadNetwork()
       when "jido-button-certs"    then loadUpdateCerts 'certs'
       when "jido-button-license"  then loadLicense()
