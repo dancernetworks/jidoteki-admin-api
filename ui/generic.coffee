@@ -236,6 +236,7 @@ loadToken = ->
   $('.jido-page-content-token .jido-panel-network').show()
   $('.token-form .token-token1-label').focus()
   $('.token-form input.form-control').val '' # reset all token input fields
+  reloadEndpoints()
 
 loadSetup = ->
   $('#jido-page-login').hide()
