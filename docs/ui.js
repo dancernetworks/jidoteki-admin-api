@@ -300,6 +300,13 @@
     $('.jido-page-content-token .jido-panel-network').show();
     $('.token-form .token-token1-label').focus();
     $('.token-form input.form-control').val(''); // reset all token input fields
+    fetchData("/api/v1/admin/installer", function(err, result) {
+      if (!err) {
+        if (result.installer === 'iso') {
+          return $('#jido-button-update').hide();
+        }
+      }
+    });
     return reloadEndpoints();
   };
 
